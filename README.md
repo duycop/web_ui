@@ -28,4 +28,4 @@ Tạo ứng dụng trực quan hoá thực địa, để giám sát realtime đ�
 
 ## Video quay màn hình quá trình làm tại lớp:
 
-- Đã gửi video qua nhóm telegram, ![Xem video](https://t.me/c/2461681536/19) 420.8MB
+- Đã gửi video qua nhóm telegram, [Xem video](https://t.me/c/2461681536/19) 420.8MB
