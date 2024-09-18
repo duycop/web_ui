@@ -24,3 +24,8 @@ Tạo ứng dụng trực quan hoá thực địa, để giám sát realtime đ�
 10. Code cho myjs.js: AJAX tới api.aspx để yêu cầu dữ liệu trạng thái hệ thống. DLL sẽ lấy đc trạng thái và chuyển về json. api.aspx sẽ trả về string json. myjs.js nhận đc chuỗi text (ở format json) thì chuyển nó thành đối tượng json xịn json = JSON.parse(data); xử lý khéo léo dữ liệu json này để thay đổi các class của các div để thể hiện trạng thái của đối tượng.
 11. Bài này sử dụng mydb.txt là csdl, mở nó bằng notepad, chage and save => thấy ngay kết quả.
 12. file myjs_old.js có nhiều comment như khi làm trên lớp, file myjs.js là bản clone, đã xoá bớt đi những comment cho gọn code
+13. full code của solution đã gửi lên github này.
+
+## Video quay màn hình quá trình làm tại lớp:
+
+- Đã gửi video qua nhóm telegram, ![Xem video](https://t.me/c/2461681536/19) 420.8MB
