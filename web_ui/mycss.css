@@ -1,0 +1,120 @@
+﻿#nen {
+    background-image: url('images/hinh_nen.png');
+    width: 459px;
+    height: 500px;
+}
+
+.den {
+    width: 101px;
+    height: 31px;
+    position: relative;
+}
+
+    .den.on {
+        background-image: url('images/den_on.png');
+    }
+    .den.off {
+        background-image: url('images/den_off.png');
+    }
+
+#den1 {
+    left: 90px;
+    top: 64px;
+}
+
+#den2 {
+    left: 276px;
+    top: 32px;
+}
+
+#den3 {
+    left: 89px;
+    top: 120px;
+}
+
+#den4 {
+    left: 276px;
+    top: 89px;
+}
+
+#den5 {
+    left: 87px;
+    top: 163px;
+}
+
+#den6 {
+    left: 273px;
+    top: 132px;
+}
+
+.quat {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    background-size: 70px 70px;
+}
+
+    .quat.off {
+        background-image: url('images/quat_tran.png');
+    }
+    .quat.on {
+        background-image: url('images/quat_tran.png');
+        -webkit-animation: spin 0.5s linear infinite;
+        -moz-animation: spin 0.5s linear infinite;
+        animation: spin 0.5s linear infinite;
+    }
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#quat1 {
+    left: 200px;
+    top: -131px;
+}
+
+#quat2 {
+    left: 200px;
+    top: -76px;
+}
+
+#quat3 {
+    left: 198px;
+    top: -34px;
+}
+#quat4 {
+    left: 368px;
+    top: 10px;
+}
+
+
+
+
+.tv {
+    width: 146px;
+    height: 32px;
+    position: relative;
+    left: 98px;
+    top: -15px;
+}
+    .tv.on {
+        background-image: url('images/tv_on.png');
+    }
+    .tv.off {
+        background-image: url('images/tv_off.png');
+    }
