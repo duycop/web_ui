@@ -76,3 +76,5 @@ Tạo ứng dụng trực quan hoá thực địa, để giám sát realtime đ�
 7. các thư viện mới: jquery-confirm: cách dùng đơn giản và thú vị => giúp tạo các dialog động => giúp trang monitor thành app dạng One_page rất hiệu quả trong giám sát và điều khiển online realtime.
 
 ## Bài tập về nhà 02: Tối nay giao (19.9) chú ý  DEAD-LINE: 3 NGÀY
+
+  - Chi tiết [Bài tập 2](bai_tap_02.md)
