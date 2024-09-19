@@ -50,8 +50,8 @@ Tạo ứng dụng trực quan hoá thực địa, để giám sát realtime đ�
 
 ## Cập nhật myjs.js
 
-1. Đăng ký sự kiện khi click vào đèn,quạt,tv thì show hộp thoại : **$(".den,.quat,.tv").click**
-2. Hộp thoại phải lấy được sid và status của thiết bị bị clicked: **var sid = $(this).data('sid'); var status = $(this).hasClass('on') ? 1 : 0;**
+1. Đăng ký sự kiện khi click vào đèn,quạt,tv thì show hộp thoại : **$(".den,.quat,.tv").click(function(){ do_some_thing_here })**
+2. Hộp thoại phải lấy được sid và status của thiết bị bị clicked: **var sid = $ (this).data('sid'); var status = $ (this).hasClass('on') ? 1 : 0;**
 3. Hộp thoại có giao diện phù hợp, tự động lấy history của thiết bị, hậu xử lý thành html và show ra vị trí phù hợp **$('#history_here').html(tb);**
 4. Thêm nút để bật tắt thiết bị: bản chất là gửi đi {action='control',sid=sid của thiết bị, status=new_status}
 
