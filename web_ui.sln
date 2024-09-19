@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web_ui", "web_ui\web_ui.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_read_db", "read_db\lib_read_db.csproj", "{987ED395-6C6C-432C-B845-31D7234C974E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control_nodered", "control_nodered\control_nodered.csproj", "{FAA959C5-5F9F-4C15-9616-ABAD05116ED8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{987ED395-6C6C-432C-B845-31D7234C974E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{987ED395-6C6C-432C-B845-31D7234C974E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{987ED395-6C6C-432C-B845-31D7234C974E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA959C5-5F9F-4C15-9616-ABAD05116ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA959C5-5F9F-4C15-9616-ABAD05116ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA959C5-5F9F-4C15-9616-ABAD05116ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA959C5-5F9F-4C15-9616-ABAD05116ED8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

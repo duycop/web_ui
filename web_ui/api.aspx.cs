@@ -10,67 +10,82 @@ namespace web_ui
 {
     public partial class api : System.Web.UI.Page
     {
-        //class PhanHoi
-        //{
-        //    public bool ok;
-        //    public string msg;
-        //    public List<int> den;
-        //    public List<int> quat;
-        //    public int tv;
-        //}
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            //PhanHoi p = new PhanHoi();
-            //try
-            //{
-            //    //ko gui len gi
-            //    //chi tra ve theo format dat truoc
-                
-            //    //ket noi db
-            //    //sql
-            //    //lay cac thong tin trong rows tra ve de gan cho p
+            
+            string action = this.Request["action"];
+          
+            switch (action)
+            {
+                case "get_status":
+                    get_status();
+                    break;
+                case "get_history":
+                    get_history();
+                    break;
+                case "control":
+                    control();
+                    break;
+                default:
+                    thong_bao_loi();
+                    break;
+            }
+        }
+        void control()
+        {
+            //phần cứng làm việc xong, nhận phản hồi xác thực
+            //thì mới gọi hàm này để lưu db: cập nhật trạng thái+lưu history
+            int idSensor = int.Parse(this.Request["id"]);
+            int status = int.Parse(this.Request["status"]);
 
-            //    string db_path = Server.MapPath("mydb.txt");
-            //    string noidung = System.IO.File.ReadAllText(db_path);
+            control_nodered.dieu_khien ct = new control_nodered.dieu_khien();
+            ct.dk(idSensor, status);
 
-            //    string[] lines = noidung.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-            //    string den = lines[0].Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
-            //    string quat = lines[1].Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
-            //    string tv = lines[2].Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
-            //    p.den = doc_mang(den);
-            //    p.quat = doc_mang(quat);
-            //    p.tv = int.Parse(tv);
-            //    p.ok = true;
-            //    p.msg = "ok";
-            //}catch(Exception ex)
-            //{
-            //    p.ok = false;
-            //    p.msg = "Lỗi rồi: "+ex.Message;
-            //}
-            //string json = JsonConvert.SerializeObject(p);
+            Read_DB.db_sqlserver db = get_db();
+            string json = db.control(idSensor, status);
+            this.Response.Write(json);
+        }
+        void thong_bao_loi()
+        {
+            string rep = "{\"ok\":false,\"msg\":\"Lỗi rồi nhé, ko có action này!\"}";
+            this.Response.Write(rep);
+        }
+        Read_DB.db_sqlserver get_db()
+        {
+            //dùng DLL để đọc mydb.txt
+            //Read_DB.DB_TXT db = new Read_DB.DB_TXT();
+            //db.db_path = Server.MapPath("mydb.txt");
+            //string json = db.Read_db_txt();
             //this.Response.Write(json);
 
+            Read_DB.db_sqlserver db = new Read_DB.db_sqlserver();
+            db.cnstr = "Server=MIU-LAPTOP\\SQLEXPRESS;Database=MonitorRoom;User Id=sa;Password=123;";
+            return db;
+        }
 
-            //code khi về đến nhà, ăn cơm xong: chuyển code đọc db txt vào class => DLL
-            //những phần đã chuyển sang class DLL thì cho vào comment.
 
+        void get_status()
+        {
             //dùng DLL để đọc mydb.txt
-            Read_DB.DB_TXT db = new Read_DB.DB_TXT();
-            db.db_path= Server.MapPath("mydb.txt");
-            string json =  db.Read_db_txt();
+            //Read_DB.DB_TXT db = new Read_DB.DB_TXT();
+            //db.db_path = Server.MapPath("mydb.txt");
+            //string json = db.Read_db_txt();
+            //this.Response.Write(json);
+
+            Read_DB.db_sqlserver db = get_db();
+            string json = db.get_status();
             this.Response.Write(json);
         }
 
-        //List<int> doc_mang(string s)
-        //{
-        //    List<int> L = new List<int>();
-        //    string[] items = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        //    foreach (string item in items)
-        //    {
-        //        int i = int.Parse(item);
-        //        L.Add(i);
-        //    }
-        //    return L;
-        //}
+        void get_history()
+        {
+            Read_DB.db_sqlserver db = get_db();
+            int idSensor = int.Parse(this.Request["id"]);
+            string json = db.get_history(idSensor);
+            this.Response.Write(json);
+        }
+
+        
     }
 }
