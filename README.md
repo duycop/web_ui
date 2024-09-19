@@ -29,3 +29,50 @@ Tạo ứng dụng trực quan hoá thực địa, để giám sát realtime đ�
 ## Video quay màn hình quá trình làm tại lớp:
 
 - Đã gửi video qua nhóm telegram, [Xem video](https://t.me/c/2461681536/19) 420.8MB
+
+# Nội dung buổi học ngày 19-09-2024:
+
+## Cập nhật DLL : Có khả năng truy xuất dữ liệu từ SQL Server
+1. Tạo db với cấu trúc phù hợp: xem file [script sql](web_ui/db/abc-data.sql)
+2. Tạo SP_API xử lý 3 khả năng: **get_status**, **get_history** và **control** => trả về json sau khi thực hiện.  xem phần cuối file [script sql](web_ui/db/abc-data.sql)
+3. DLL có class nhận cnstr là chuỗi kết nối, thực thi command là SP_API với tham số phù hợp, thực thi dạng **cmd.ExecuteScalar();** để thu về chuỗi json => Xem class thứ 2 trong file [class dll](read_db/txt_db.cs)
+4. api.aspx.cs phân luồng các yêu cầu bằng biến action, vì ajax sẽ cùng gửi lên api nhưng với action khác nhau, xem phần switch trong [api.aspx.cs](web_ui/api.aspx.cs)
+5. Mỗi yêu cầu của action được gọi 1 hàm tương ứng. Mỗi hàm sẽ lấy thêm dữ liệu post lên từ client. vd: **int idSensor = int.Parse(this.Request["id"]);**  sau đó gọi DLL và truyền tham số vào để lấy được json. gửi json này về client
+
+## Cập nhật index.html:
+
+1. Thêm các thuộc tính html5 vào các div. ví dụ:  <div id="den1" class="den" **data-sid="101"** ></div>
+2. Download thư viện, kéo vào project, và thêm dòng tham chiếu tới thư viện đó trong index.html: 
+ - bootstrap.min.css
+ - bootstrap.bundle.min.js
+ - jquery-confirm.min.css
+ - jquery-confirm.min.js
+
+## Cập nhật myjs.js
+
+1. Đăng ký sự kiện khi click vào đèn,quạt,tv thì show hộp thoại : **$(".den,.quat,.tv").click**
+2. Hộp thoại phải lấy được sid và status của thiết bị bị clicked: **var sid = $(this).data('sid'); var status = $(this).hasClass('on') ? 1 : 0;**
+3. Hộp thoại có giao diện phù hợp, tự động lấy history của thiết bị, hậu xử lý thành html và show ra vị trí phù hợp **$('#history_here').html(tb);**
+4. Thêm nút để bật tắt thiết bị: bản chất là gửi đi {action='control',sid=sid của thiết bị, status=new_status}
+
+## Thêm DLL để gửi y/c bật tắt sang Node-Red
+
+1. Đã cài sẵn node-red trên docker desktop, port 1880
+2. tạo luồng nhận dữ liệu tới 127.0.0.1:1880/dieu_khien  (sủ dụng node: http_in và http_response)
+3. trong class c#: copy paste code từ chatGPT đẻ ra, để gửi yêu cầu tới url với data json phù hợp việc bật tắt thiết bị sid
+4. debug trên nodered thấy nhận đúng dữ liệu thao tác control bật tắt từ web
+5. thêm mã dùng DLL này vào hàm control của api.aspx.cs => xem dòng 42, 43 của [asp.aspx.cs](web_ui/api.aspx.cs)
+
+## Không cần cập nhật mycss.cs
+
+## Kết quả buổi học 19.9.2024:
+
+1. Thấy rằng việc giám sát và điều khiển realtime cũng dễ
+2. Việc bật tắt thiết bị thật: phải có phần cứng thực hiện (PLC, adruino, esp8266, ....)
+3. Việc lấy trạng thái các thiết bị : phải dùng sensor để đo trực tiếp, hoặc gián tiếp để ra số liệu
+4. Phải tổ chức đc csdl phù hợp thì mới lưu đc trạng thái và lịch sử
+5. phải biết dùng SQL (các môn trước) thì giờ mới lấy đc nó (get_status, get_history, control) qua lệnh SQL
+6. Việc sử dụng các selector trong css và trong cú pháp cả jQuery là như nhau , hổng thì phải đọc đọc và đọc
+7. các thư viện mới: jquery-confirm: cách dùng đơn giản và thú vị => giúp tạo các dialog động => giúp trang monitor thành app dạng One_page rất hiệu quả trong giám sát và điều khiển online realtime.
+
+## Bài tập về nhà 02: Tối nay giao (19.9) chú ý  DEAD-LINE: 3 NGÀY
