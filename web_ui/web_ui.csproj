@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="api.aspx" />
+    <Content Include="db\abc-data.sql" />
     <Content Include="images\den_off.png" />
     <Content Include="images\den_on.png" />
     <Content Include="images\hinh_nen.png" />
