@@ -68,7 +68,7 @@ Tạo ứng dụng trực quan hoá thực địa, để giám sát realtime đ�
 ## Kết quả buổi học 19.9.2024:
 
 1. Thấy rằng việc giám sát và điều khiển realtime cũng dễ
-2. Việc bật tắt thiết bị thật: phải có phần cứng thực hiện (PLC, adruino, esp8266, ....)
+2. Việc bật tắt thiết bị thật: phải có phần cứng thực hiện (PLC, adruino, esp8266, ....). Việc app của chúng ta dùng thư viện DLL control_nodered để tiện cho việc giao tiếp với phần cứng. trên lớp chỉ debug để thaasya rằng đã nhận được đúng dữ liệu gửi sang nodered từ giao diện web mà người dùng muốn bật/tắt
 3. Việc lấy trạng thái các thiết bị : phải dùng sensor để đo trực tiếp, hoặc gián tiếp để ra số liệu
 4. Phải tổ chức đc csdl phù hợp thì mới lưu đc trạng thái và lịch sử
 5. phải biết dùng SQL (các môn trước) thì giờ mới lấy đc nó (get_status, get_history, control) qua lệnh SQL
