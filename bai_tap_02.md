@@ -25,8 +25,8 @@
 
 1. Sử dụng vs2022, Sql server 2019
 2. Tạo solution trên vs2022, có thay đổi lớn là commit và push lên github
-3. Để link GITHUB LÀ **PRIVATE** NHƯNG ADD THẦY VÀO, MỌI LẦN PUSH THẦY ĐỀU ĐƯỢC BÁO EMAIL: ![image](https://github.com/user-attachments/assets/7675aea3-2c2a-48e5-bece-974b7889ca89)
-4. Paste link public của Repository vào link sau (sử dụng tài khoản @tnut): [paste link github vào đây](https://docs.google.com/spreadsheets/d/1I5CjD4tDEX_gIaOB9UwCMqXJEHihkibVGggCYwWhYv0/edit?usp=sharing)
+3. Để link GITHUB LÀ **PRIVATE** NHƯNG ADD THẦY ( duycop@gmail.com ) VÀO, MỌI LẦN PUSH THẦY ĐỀU ĐƯỢC BÁO EMAIL: ![image](https://github.com/user-attachments/assets/7675aea3-2c2a-48e5-bece-974b7889ca89)
+4. Paste link public của Repository vào link sau (sử dụng tài khoản @tnut để edit file excel sau): [paste link github vào đây](https://docs.google.com/spreadsheets/d/1I5CjD4tDEX_gIaOB9UwCMqXJEHihkibVGggCYwWhYv0/edit?usp=sharing)
 5. Tạo ứng dụng web loại **ASP.NET Web Application (.NET Framework)** sử dụng
 6. Tạo **index.html** làm giao diện trang web (one page application)
 7. Giao diện thay đổi hình dạng theo các trạng thái của đối tượng cần monitor => cần ảnh (nên dùng png) và các .class  #id để định vị nó
